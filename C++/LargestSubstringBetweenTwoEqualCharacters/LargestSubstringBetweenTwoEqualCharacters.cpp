@@ -1,7 +1,8 @@
 #include <string>
 #include <iostream>
+#include <unordered_map>
 using namespace std;
-
+/*
 class Solution
 {
 public:
@@ -28,6 +29,36 @@ public:
         }
 
         return --final_longest;
+    }
+};
+*/
+
+class Solution
+{
+public:
+    int maxLengthBetweenEqualCharacters(string s)
+    {
+
+        unordered_map<char, int> Map;
+        for (int i = 0; i < s.size(); i++)
+        {
+            Map[s[i]] = i;
+        }
+
+        unordered_map<char, int>::iterator it = Map.begin();
+        int len = 0;
+        int max =0;
+        for (int i = 0; i < s.size(); i++)
+        {
+           len = Map[s[i]] - i;
+
+           if (len > max)
+           {
+               max = len;
+           }
+             
+        }
+        return --max;
     }
 };
 
