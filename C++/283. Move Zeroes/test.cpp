@@ -1,17 +1,35 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 using namespace std;
-#include <bits/stdc++.h>
+
+
+class Solution
+{
+public:
+    int maxProfit(vector<int> &prices)
+    {
+        int max_profit = 0;
+        int current_profit = 0;
+        for (int i = 0; i < prices.size(); i++)
+        {
+            for (int j = i; j < prices.size(); j++)
+            {
+                current_profit = prices[j] - prices[i];
+                if (max_profit < current_profit)
+                {
+                    max_profit = current_profit;
+                }
+            }
+        }
+        return max_profit;
+    }
+};
 
 int main()
 {
-    vector<int> vec{0, 1, 0, 3, 12};
-    // sort_heap(vec.begin(),vec.end()+1);
-    sort(vec.begin(),vec.end());
-    for (int i = 0; i < vec.size(); i++)
-    {
-        cout << vec[i] << endl;
-    }
+    vector<int> vec{7, 1, 5, 3, 6, 4};
 
+    Solution s;
+    cout << s.maxProfit(vec);
     return 0;
 }
