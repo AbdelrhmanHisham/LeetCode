@@ -4,29 +4,6 @@
 #include <bits/stdc++.h>
 #include <map>
 using namespace std;
-// class Solution
-// {
-// public:
-//     int maxProfit(vector<int> &prices)
-//     {
-//         int max_profit = 0;
-//         int current_profit = 0;
-//         vector<int> profits;
-//         for (int i = 0; i < prices.size(); i++)
-//         {
-//             for (int j = i; j < prices.size(); j++)
-//             {
-//                 current_profit = prices[j] - prices[i];
-//                 if (max_profit < current_profit)
-//                 {
-//                     max_profit = current_profit;
-//                 }
-//             }
-
-//         }
-//         return max_profit;
-//     }
-// };
 
 class Solution
 {
@@ -55,31 +32,6 @@ public:
     }
 
 };
-
-
-// class Solution
-// {
-// public:
-//     int maxProfit(vector<int> &prices)
-//     {
-//         int current_profit = 0;
-//         vector<int> profits;
-//         int current_size = prices.size()-1;
-//         int patch = 1;
-//         int i =0;
-//         while (current_size > patch)
-//         {
-//             current_profit = prices[i] -prices[i+patch] 
-//             if (prices[i])
-//             {
-//                 /* code */
-//             }
-            
-//         }
-        
-//         return max_profit;
-//     }
-// };
 
 
 
