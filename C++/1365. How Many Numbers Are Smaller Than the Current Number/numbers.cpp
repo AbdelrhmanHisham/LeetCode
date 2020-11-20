@@ -21,64 +21,33 @@ public:
             printf("|%d| --> |%d| \n", it->first, it->second);
         }
 
-        auto it = ++Map.begin();
-        auto it_1 = Map.begin();
+        auto it = Map.begin();
         int value = 0;
         int unique = 0;
-        bool loop = false;
-        int counter = 0;
-        indices[it_1->second] = unique;
-        unique++;
-        while (it_1 != Map.end() && it != Map.end())
+        int old_value = 0;
+        int current_value = 0;
+        while (it != Map.end())
         {
-            it = ++it_1;
-            while (it_1->first == it->first)
-            {
-                indices[it->second] = indices[it_1->second];
-                it++;
-            }
-            
-            it_1++;
-            unique++;
+            indices[it->second] = value;
+            value++;
+            it++;
         }
+        it = Map.begin();
+        auto it_1 = Map.begin();
+        it_1++;
+        while (it_1 != Map.end())
+        {
+            
+            if (it->first == it_1->first)
+            {
+                indices[it_1->second] = indices[it->second];
+                
+            }
 
-        // indices[it_1->second] = unique;
-        // unique++;
-        // while (it != Map.end())
-        // {
-        //     // cout<<"Outter"<<endl;
-        //     while (it->first == (it_1)->first)
-        //     {
-        //         indices[it->second] = value;
-        //         indices[it_1->second] = value;
-        //         it++;
-        //         it_1++;
-        //         unique++;
-        //         // cout<<"Inter"<<endl;
-        //         loop = true;
-        //     }
-
-        //     if (loop)
-        //     {
-        //         unique++;
-        //         loop = false;
-        //         continue;
-        //     }
-
-        //     indices[it->second] = unique;
-        //     it++;
-        //     it_1++;
-        //     value++;
-        //     unique++;
-
-        //     for (int i = 0; i < indices.size(); i++)
-        //     {
-        //         printf("|%d|", indices[i]);
-        //     }
-        //     printf("Loop : %d\n", counter++);
-        //     printf("Uni : %d  Value : %d \n", unique, value);
-        // }
-
+            it++;
+            it_1++;
+        }
+     
         return indices;
     }
 };
@@ -87,8 +56,9 @@ int main()
 {
 
     Solution s;
-    // vector<int> nums {8,1,2,2,3};
-    vector<int> nums{6, 5, 4, 8};
+    vector<int> nums{5, 0, 10, 0, 10, 6};
+    // vector<int> nums{8, 1, 2, 2, 3};
+    // vector<int> nums{6, 5, 4, 8};
     vector<int> vec = s.smallerNumbersThanCurrent(nums);
 
     for (int i = 0; i < vec.size(); i++)
