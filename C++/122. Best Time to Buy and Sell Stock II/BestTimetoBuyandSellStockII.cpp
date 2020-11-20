@@ -5,41 +5,50 @@
 #include <map>
 using namespace std;
 
+
 class Solution
 {
 public:
     int maxProfit(vector<int> &prices)
     {
-        if (prices.size() <= 1)
+
+
+        int max_profit = 0;
+
+        int i = 0;
+        int valley = prices[0];
+        int peak = prices[0];
+
+        while (i < prices.size()-1)
         {
-            return 0;
-        }
-        else
-        {
-            int profit = 0;
-            int min_buy= prices[0]; 
-            for (int i = 1; i < prices.size(); i++)
+            while (i < prices.size()-1 && prices[i] >= prices[i + 1])
             {
-
-                profit = max(profit, prices[i] - min_buy);
-                min_buy = min(min_buy, prices[i]);
-
-                cout<<"Profit : "<<profit<<endl;
-
+                i++;
             }
-            return profit;
+            valley = prices[i];
+
+            while (i < prices.size()-1 && prices[i] <= prices[i + 1])
+            {
+                i++;
+            }
+            peak = prices[i];
+
+            max_profit += peak - valley;
         }
+
+        return max_profit;
     }
-
 };
-
 
 
 int main()
 {
-    vector<int> vec{7, 1, 5, 3, 6 , 4};
+    vector<int> vec{7, 1, 5, 3, 6, 4};
 
     Solution s;
     cout << s.maxProfit(vec);
     return 0;
 }
+
+
+

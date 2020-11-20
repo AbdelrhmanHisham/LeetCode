@@ -23,14 +23,17 @@ public:
 			/* if x negative then x will be converted to uint64_t in this expression 
              * it will be (UINT_MAX - abs(x) - 1), so we need to balance 
              * by adding UINT_MAX and +1 */
-		   u_x = UINT_MAX - x + 1;
+		//    u_x = UINT_MAX - x + 1;
+        u_x = x *-1;
         }
+        cout<<u_x<<endl;
         
 		/* Simple algorithm, take the last digit from u_x and it to n_u_x 
 		 * then just remove last digit from u_x */
         while (u_x > 0) {
             n_u_x = n_u_x * 10 + u_x % 10;
             u_x /= 10;
+            cout<<n_u_x<<endl;
         }
         
 		// Check if overflow is possible if we convert uint64_t back to in
@@ -99,7 +102,10 @@ int main()
     int number = -15365165;
     cout << number << endl;
     int num = s.reverse(number);
-    cout << num;
+    cout << num << endl;
 
+
+
+    cout << s.sgn(0);
     return 0;
 }
