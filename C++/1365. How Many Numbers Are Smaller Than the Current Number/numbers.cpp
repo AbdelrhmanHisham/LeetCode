@@ -37,17 +37,17 @@ public:
         it_1++;
         while (it_1 != Map.end())
         {
-            
+
             if (it->first == it_1->first)
             {
                 indices[it_1->second] = indices[it->second];
-                
+
             }
 
             it++;
             it_1++;
         }
-     
+
         return indices;
     }
 };
