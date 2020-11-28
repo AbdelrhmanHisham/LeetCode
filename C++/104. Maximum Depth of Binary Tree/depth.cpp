@@ -14,6 +14,10 @@ class Solution
 {
 private :
     int scan(TreeNode *side){
+        while ()
+        {
+            /* code */
+        }
         
     }    
 public:
