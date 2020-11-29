@@ -3,51 +3,50 @@
 #include <string>
 using namespace std;
 
-map<string,int> suffix_array(string str);
-void print_table(map<string,int> MAP);
+
+class Solution
+{
+public:
+    string longestCommonPrefix(vector<string> &strs)
+    {
+        if (strs.size() == 1)
+            return strs[0];
+     
+     
+        if (strs.size() == 0)
+            return "";
+
+        string out = "";
+        int j = 0;
+        int i =0;
+        for (auto c : strs[0])
+        {
+            for ( j =1 ; j < strs.size(); j++)
+            {
+                if (c != strs[j][i] || i >= strs[j].size())
+                {
+                    return out;
+                }
+            }
+
+            out += c;
+            i++;
+        }
+    
+    return out;
+    }
+
+};
+
 int main()
 {
-    // vector<string> vec {"#abde","aad","cdsa","zdcvs","bsfd"};
 
-    // sort(vec.begin() , vec.end() , greater<>());
-    // for (int i = 0; i < vec.size(); i++)
-    // {
-    //     cout<<vec[i]<<endl;
-    // }
-
-    suffix_array("AZAZA");
+    Solution s;
+    // vector<string> vec{"flower", "flow", "flight"};
+    // vector<string> vec{"dog","racecar","car"};
+    vector<string> vec{"flower"};
     
+    cout << s.longestCommonPrefix(vec)<<endl;
+
     return 0;
 }
-
-map<string,int> suffix_array(string str)
-{
-    map<string,int> suffix;
-
-    for (int i = 0; i < str.size(); i++)
-    {
-        suffix.insert(pair<string,int> (str.substr(i),i));
-    }
-    print_table(suffix);
-    for (int i = 0; i < str.size(); i++)
-    {
-        suffix.insert(pair<string,int> (str.substr(i),i));
-    }   
-    return suffix;
-
-}
-
-void print_table(map<string,int> MAP)
-{
-    cout<<"Key"<<"    "<<"value"<<endl;
-    for (auto it = MAP.begin() ; it != MAP.end(); it++)
-    {
-        cout<<it->first;
-        printf("    %d\n",it->second);
-    }
-
-
-    cout<<"finished!!"<<endl;
-    cout<<endl;
-    
-} 
