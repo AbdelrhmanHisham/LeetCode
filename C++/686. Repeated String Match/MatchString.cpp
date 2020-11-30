@@ -73,6 +73,7 @@ public:
         }
 
         string holder;
+        
         int counter = 0;
 
         if (a.size() >= b.size())
@@ -155,5 +156,6 @@ int main()
     Solution s;
     cout << s.repeatedStringMatch("aaac", "aac");
     // cout << s.KMP("aaac", "aac");
+    
     return 0;
 }
