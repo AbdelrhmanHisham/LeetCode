@@ -1,7 +1,7 @@
 #include <string>
 #include <iostream>
-#include <unordered_set>
-#include <vector>
+
+#include <sstream>
 using namespace std;
 
 class Solution
@@ -11,22 +11,29 @@ public:
     {
         bool pattern = false;
         int n = s.size();
-        if(n <= 1)return pattern;
-        
+        if (n <= 1)
+            return pattern;
+
         string holder;
-        for (int i = n/2; i > 0; i--)
-        {   
-            holder = s.substr(0,i);
-            holder += holder;
-            if (s == holder)
+        stringstream ss;
+        for (int i = n / 2; i > 0; i--)
+        {
+            if (n % i == 0)
             {
-                return true;
+                int multiples = n / i;
+                holder = s.substr(0, i);
+                string shika;
+                for (int i = 0; i < multiples; i++)
+                {
+                    shika += holder;
+                }
+
+                if (s == shika)
+                {
+                    return true;
+                }
             }
-            
-            // cout<<holder<<endl;
         }
-        
-  
 
         return pattern;
     }
@@ -35,7 +42,9 @@ public:
 int main()
 {
     Solution s;
-    string str = "abaaba";
+    string str = "abcabcabc";
     cout << s.repeatedSubstringPattern(str);
     return 0;
 }
+
+
