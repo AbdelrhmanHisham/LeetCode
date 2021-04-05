@@ -13,6 +13,7 @@
         "unordered_map": "cpp",
         "unordered_set": "cpp",
         "system_error": "cpp",
-        "any": "cpp"
+        "any": "cpp",
+        "stdio.h": "c"
     }
 }
