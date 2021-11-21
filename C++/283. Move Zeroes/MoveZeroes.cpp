@@ -14,7 +14,7 @@ public:
             if (nums[i] == 0)
                 break;
         }
-        
+
         j = i + 1;
         while (j < nums.size())
         {
@@ -27,18 +27,51 @@ public:
         }
     }
 };
+// class Solution
+// {
+// public:
+//     void moveZeroes(vector<int> &nums)
+//     {
+//         int start = 0;
+//         int end = nums.size()-1;
+
+//         for (int i = 0; i < end; i++)
+//         {
+//             if (nums[i] == 0)
+//             {
+//                 start = i;
+//                 while (start < end)
+//                 {
+//                     swap(nums[start], nums[start+1]);
+//                     start++;
+//                 }
+//                 end--;
+//             }
+
+//             if (nums[i] == 0)
+//             {
+//                 i--;
+//             }
+//         }
+//     }
+// };
 
 int main()
 {
-    vector<int> vec{1,3,0,0,12};
+    // [0,1,0,3,12]
+    // vector<int> vec{0,1,0,3,12};
+    // vector<int> vec{1, 3, 0, 0, 12};
     // vector<int> vec{0, 1, 0, 1};
+
+    vector<int> vec{0, 0, 1};
+
     Solution s;
     s.moveZeroes(vec);
     cout << endl;
     for (int i = 0; i < vec.size(); i++)
     {
-        cout << vec[i] << endl;
+        cout << vec[i] << " ,";
     }
-
+    cout << endl;
     return 0;
 }
